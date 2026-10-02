@@ -27,7 +27,7 @@ export function Footer() {
                 <a
                   href="#"
                   aria-label={s.label}
-                  className="grid h-9 min-w-9 place-items-center rounded-lg bg-white/10 px-2 text-xs font-bold text-white transition hover:bg-brand-500"
+                  className="grid size-11 place-items-center rounded-lg bg-white/10 text-xs font-bold text-white transition hover:bg-brand-500"
                 >
                   {s.short}
                 </a>

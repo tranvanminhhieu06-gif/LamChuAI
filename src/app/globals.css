@@ -4,6 +4,10 @@
 @theme {
   --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
 
+  /* Raven: chữ đọc được tối thiểu 13px */
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: calc(1.125 / 0.8125);
+
   --color-brand-50: #eef5ff;
   --color-brand-100: #dbe9ff;
   --color-brand-200: #bcd6ff;

@@ -31,7 +31,7 @@ export function Button({
   children,
   ...rest
 }: Props) {
-  const sizing = size === "sm" ? "h-9 px-4 text-sm" : "h-11 px-6 text-[15px]";
+  const sizing = size === "sm" ? "h-11 px-5 text-sm" : "h-11 px-6 text-[15px]";
   return (
     <Link
       {...rest}

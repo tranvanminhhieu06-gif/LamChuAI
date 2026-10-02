@@ -1,5 +1,6 @@
 import { BookOpenCheck, Gift, Users } from "lucide-react";
 import { stats } from "@/data/site";
+import { Button } from "@/components/ui/Button";
 
 const statIcons = [Users, BookOpenCheck, Gift];
 
@@ -8,7 +9,7 @@ export function Community() {
     <section
       id="cong-dong"
       aria-labelledby="community-title"
-      className="relative isolate scroll-mt-20 overflow-hidden bg-gradient-to-r from-brand-900 via-brand-700 to-brand-500 text-white"
+      className="relative isolate scroll-mt-20 overflow-hidden bg-gradient-to-r from-brand-900 via-brand-700 to-brand-600 text-white"
     >
       <div className="grid-bg absolute inset-0 -z-10" />
       <div className="absolute -right-24 -bottom-24 -z-10 size-96 rounded-full bg-sky-300/25 blur-3xl" />
@@ -21,6 +22,9 @@ export function Community() {
           <p className="mt-3 max-w-md text-white/85">
             Hàng nghìn học viên đã và đang làm chủ AI để tạo ra những thay đổi tích cực trong công việc và cuộc sống.
           </p>
+          <Button href="/khoa-hoc" variant="white" arrow className="mt-6">
+            Bắt đầu học ngay
+          </Button>
         </div>
         <ul className="grid grid-cols-3 gap-3 sm:gap-5">
           {stats.map((s, i) => {
@@ -29,7 +33,7 @@ export function Community() {
               <li key={s.label} className="rounded-2xl bg-white/10 p-4 text-center ring-1 ring-white/25 backdrop-blur sm:p-6">
                 <Icon className="mx-auto size-6 text-sky-200" aria-hidden />
                 <p className="mt-2 text-2xl font-black sm:text-3xl">{s.value}</p>
-                <p className="mt-1 text-xs text-white/85 sm:text-sm">{s.label}</p>
+                <p className="mt-1 text-sm text-white/90">{s.label}</p>
               </li>
             );
           })}

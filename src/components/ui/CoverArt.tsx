@@ -44,7 +44,7 @@ export function CoverArt({ title, from, to, tag, className = "" }: Props) {
         </span>
       </div>
       {tag && (
-        <span className="absolute top-3 left-3 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-bold text-brand-700">
+        <span className="absolute top-3 left-3 rounded-full bg-white/90 px-2.5 py-1 text-xs font-bold text-brand-700">
           {tag}
         </span>
       )}

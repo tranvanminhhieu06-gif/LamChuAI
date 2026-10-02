@@ -19,7 +19,7 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative isolate overflow-hidden bg-gradient-to-br from-brand-700 via-brand-600 to-brand-400 text-white"
+      className="relative isolate overflow-hidden bg-gradient-to-br from-brand-700 via-brand-600 to-brand-500 text-white"
     >
       <div className="grid-bg absolute inset-0 -z-10" />
       <div className="absolute -top-40 right-0 -z-10 size-[520px] rounded-full bg-sky-300/30 blur-3xl" />
@@ -53,7 +53,7 @@ export function Hero() {
                 </span>
                 <span className="leading-tight">
                   <span className="block font-semibold">{title}</span>
-                  <span className="text-white/75">{sub}</span>
+                  <span className="text-white/90">{sub}</span>
                 </span>
               </li>
             ))}

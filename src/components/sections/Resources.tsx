@@ -32,7 +32,7 @@ export function Resources() {
                   <p className="mt-1 text-sm text-muted">{r.desc}</p>
                   <a
                     href="#"
-                    className="mt-3 inline-flex h-8 w-fit items-center rounded-md bg-brand-600 px-4 text-xs font-semibold text-white hover:bg-brand-700"
+                    className="mt-3 inline-flex h-11 w-fit items-center rounded-lg bg-brand-600 px-5 text-sm font-semibold text-white hover:bg-brand-700"
                   >
                     Tải ngay<span className="sr-only"> {r.title}</span>
                   </a>
