@@ -35,7 +35,7 @@ export function Button({
   return (
     <Link
       {...rest}
-      className={`inline-flex items-center justify-center gap-2 rounded-full font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${sizing} ${styles[variant]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 ${sizing} ${styles[variant]} ${className}`}
     >
       {children}
       {arrow && <ArrowRight className="size-4" aria-hidden />}

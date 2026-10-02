@@ -18,7 +18,7 @@ export function Features() {
         <SectionHeader
           id="features-title"
           align="center"
-          title="Học gì tại Cộng Đồng Làm Chủ AI?"
+          title="Học gì tại Cộng đồng Làm chủ AI?"
           desc="Trang bị đầy đủ kỹ năng và công cụ AI để tạo ra nội dung chất lượng, tăng trưởng kênh và xây dựng thương hiệu cá nhân vững mạnh."
         />
         <ul className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">

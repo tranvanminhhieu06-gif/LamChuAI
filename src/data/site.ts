@@ -2,7 +2,7 @@
 // mà không phải sửa component — chỉ cần giữ nguyên kiểu dữ liệu bên dưới.
 
 export const site = {
-  name: "Cộng Đồng Làm Chủ AI",
+  name: "Cộng đồng Làm chủ AI",
   shortName: "Làm Chủ AI",
   url: "https://lamchuai.vn",
   description:

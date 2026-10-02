@@ -52,9 +52,11 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button href="/khoa-hoc" size="sm" arrow className="hidden sm:inline-flex">
-            Học ngay
-          </Button>
+          <div className="hidden sm:block">
+            <Button href="/khoa-hoc" size="sm" arrow>
+              Học ngay
+            </Button>
+          </div>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
