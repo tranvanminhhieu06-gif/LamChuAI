@@ -4,11 +4,11 @@
 export const site = {
   name: "Cộng đồng Làm chủ AI",
   shortName: "Làm Chủ AI",
-  url: "https://lamchuai.vn",
+  url: "https://trangai.com",
   description:
     "Học Marketing AI thực chiến – xây hệ thống nội dung, SEO, video và thương hiệu cá nhân với AI.",
   phone: "0967 664 321",
-  email: "contact@lamchuai.vn",
+  email: "contact@trangai.com",
   address: "Hà Nội, Việt Nam",
   hours: "8:00 – 22:00 (T2 – CN)",
 };
