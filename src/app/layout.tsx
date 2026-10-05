@@ -7,8 +7,7 @@ import "@fontsource/be-vietnam-pro/800.css";
 import "@fontsource/be-vietnam-pro/900.css";
 import "./globals.css";
 import { site } from "@/data/site";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import { SiteChrome } from "@/components/layout/SiteChrome";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -30,17 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="vi" className="h-full antialiased">
       <body className="flex min-h-full flex-col font-sans">
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:shadow"
-        >
-          Bỏ qua đến nội dung chính
-        </a>
-        <Header />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );

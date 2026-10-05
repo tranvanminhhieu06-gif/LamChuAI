@@ -1,21 +1,24 @@
-name: Deploy Next.js to GitHub Pages
+name: Deploy lên hosting AZDIGI
+
+# Mỗi lần push lên main: build bản tĩnh rồi tải thư mục out/ lên public_html qua FTP.
+# Cần tạo 3 secret trong GitHub (Settings → Secrets and variables → Actions):
+#   FTP_SERVER   ví dụ ghf58-22141.azdigihost.com
+#   FTP_USERNAME tài khoản FTP tạo trong cPanel, thư mục gốc là public_html
+#   FTP_PASSWORD mật khẩu của tài khoản FTP đó
+# Chỉ những file có trong out/ được tải lên/xóa, nên api/config.php (mật khẩu quản trị),
+# thư mục uploads/ (ảnh đã tải) và nội dung đã xuất bản trên hosting không bị đụng tới.
 
 on:
   push:
     branches: ["main"]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 concurrency:
-  group: "pages"
+  group: deploy-hosting
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -24,30 +27,21 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build with Next.js
+      - name: Build
         run: npm run build
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload to hosting (FTPS)
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
-          path: ./out
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./out/
+          server-dir: ./

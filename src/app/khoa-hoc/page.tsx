@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getCourses } from "@/lib/content";
 import { PageHero } from "@/components/ui/PageHero";
-import { CourseCard } from "@/components/cards/CourseCard";
+import { CourseCard, courseToItem } from "@/components/cards/CourseCard";
 
 export const metadata: Metadata = {
   title: "Khóa học",
@@ -21,7 +21,7 @@ export default async function CoursesPage() {
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {courses.map((c) => (
             <li key={c.slug}>
-              <CourseCard course={c} />
+              <CourseCard course={courseToItem(c)} />
             </li>
           ))}
         </ul>

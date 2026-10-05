@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 // Chưa có logo: tạm hiển thị tên dạng chữ. Khi có logo, thay phần <span> bằng <Image>.
-export function Logo({ light = false }: { light?: boolean }) {
+export function Logo({ name, light = false }: { name: string; light?: boolean }) {
   return (
     <Link
       href="/"
@@ -9,7 +9,7 @@ export function Logo({ light = false }: { light?: boolean }) {
         light ? "text-white" : "text-brand-900"
       }`}
     >
-      <span>Cộng đồng Làm chủ AI</span>
+      <span>{name}</span>
     </Link>
   );
 }

@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Trang quản trị: mật khẩu và dữ liệu chỉ nằm trên hosting
+public/api/config.php
+lamchuai-data/

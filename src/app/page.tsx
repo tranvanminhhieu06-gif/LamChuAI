@@ -1,10 +1,4 @@
-import { Hero } from "@/components/sections/Hero";
-import { Features } from "@/components/sections/Features";
-import { Courses } from "@/components/sections/Courses";
-import { Roadmap } from "@/components/sections/Roadmap";
-import { BlogPreview } from "@/components/sections/BlogPreview";
-import { Resources } from "@/components/sections/Resources";
-import { Community } from "@/components/sections/Community";
+import { BlockRenderer } from "@/components/blocks/BlockRenderer";
 import { site } from "@/data/site";
 
 const jsonLd = {
@@ -18,6 +12,8 @@ const jsonLd = {
   address: { "@type": "PostalAddress", addressLocality: "Hà Nội", addressCountry: "VN" },
 };
 
+// Các khối của trang chủ được chỉnh trong /admin; bản dựng sẵn dùng nội dung mặc định
+// và tự cập nhật theo bản đã xuất bản khi tải trang.
 export default function Home() {
   return (
     <>
@@ -25,13 +21,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
-      <Hero />
-      <Features />
-      <Courses />
-      <Roadmap />
-      <BlogPreview />
-      <Resources />
-      <Community />
+      <BlockRenderer />
     </>
   );
 }

@@ -22,8 +22,8 @@
   --color-ink: #0c1b3a;
   --color-muted: #5b6b8c;
 
-  --shadow-card: 0 10px 30px -12px rgb(22 88 245 / 0.18);
-  --shadow-glow: 0 12px 32px -8px rgb(22 88 245 / 0.55);
+  --shadow-card: 0 10px 30px -12px color-mix(in srgb, var(--color-brand-600) 18%, transparent);
+  --shadow-glow: 0 12px 32px -8px color-mix(in srgb, var(--color-brand-600) 55%, transparent);
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-float-slow: float 8s ease-in-out infinite;
@@ -55,6 +55,38 @@ body {
 
   .card {
     @apply rounded-2xl border border-brand-100 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:border-brand-300;
+    --t-heading: var(--color-brand-900);
+    --t-body: var(--color-muted);
+    --t-eyebrow: var(--color-brand-600);
+  }
+
+  /* Màu chữ theo nền của khối: nền sáng dùng màu mặc định, nền đậm (.tone-dark) chuyển sang trắng. */
+  .t-heading {
+    color: var(--t-heading, var(--color-brand-900));
+  }
+  .t-body {
+    color: var(--t-body, var(--color-muted));
+  }
+  .t-eyebrow {
+    color: var(--t-eyebrow, var(--color-brand-600));
+  }
+  .tone-dark {
+    --t-heading: #fff;
+    --t-body: rgb(255 255 255 / 0.9);
+    --t-eyebrow: #bae6fd;
+    color: #fff;
+  }
+
+  /* Khung xem trước trong trang quản trị */
+  [data-preview] [data-block-id] {
+    cursor: pointer;
+    outline-offset: -3px;
+  }
+  [data-preview] [data-block-id]:hover {
+    outline: 2px dashed var(--color-brand-400);
+  }
+  [data-preview] [data-block-id][data-selected] {
+    outline: 3px solid var(--color-brand-500);
   }
 
   .grid-bg {

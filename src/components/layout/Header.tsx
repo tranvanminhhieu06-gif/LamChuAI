@@ -4,12 +4,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { navLinks } from "@/data/site";
+import { useContent } from "@/content/ContentProvider";
+import { safeHref } from "@/content/normalize";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
 
 export function Header() {
   const pathname = usePathname();
+  const { site } = useContent();
+  const navLinks = site.nav.filter((l) => l.label && l.href);
+  const cta = site.headerCta;
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -30,14 +34,14 @@ export function Header() {
       }`}
     >
       <div className="container-x flex h-16 items-center justify-between gap-6 lg:h-[72px]">
-        <Logo />
+        <Logo name={site.name} />
 
         <nav aria-label="Menu chính" className="hidden lg:block">
           <ul className="flex items-center gap-8">
             {navLinks.map((l) => (
-              <li key={l.href}>
+              <li key={l.label + l.href}>
                 <Link
-                  href={l.href}
+                  href={safeHref(l.href)}
                   className={`relative py-2 text-[15px] font-medium transition-colors hover:text-brand-600 ${
                     isActive(l.href)
                       ? "text-brand-600 after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-brand-600"
@@ -52,11 +56,13 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="hidden sm:block">
-            <Button href="/khoa-hoc" size="sm" arrow>
-              Học ngay
-            </Button>
-          </div>
+          {cta.label && cta.href && (
+            <div className="hidden sm:block">
+              <Button href={safeHref(cta.href)} size="sm" arrow>
+                {cta.label}
+              </Button>
+            </div>
+          )}
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -74,9 +80,9 @@ export function Header() {
         <nav id="mobile-nav" aria-label="Menu di động" className="border-t border-brand-100 bg-white lg:hidden">
           <ul className="container-x flex flex-col py-3">
             {navLinks.map((l) => (
-              <li key={l.href}>
+              <li key={l.label + l.href}>
                 <Link
-                  href={l.href}
+                  href={safeHref(l.href)}
                   onClick={() => setOpen(false)}
                   className={`block rounded-lg px-3 py-3 font-medium ${
                     isActive(l.href) ? "bg-brand-50 text-brand-700" : "text-ink hover:bg-brand-50"
@@ -86,11 +92,13 @@ export function Header() {
                 </Link>
               </li>
             ))}
-            <li className="mt-2 px-3 pb-2 sm:hidden">
-              <Button href="/khoa-hoc" arrow className="w-full">
-                Học ngay
-              </Button>
-            </li>
+            {cta.label && cta.href && (
+              <li className="mt-2 px-3 pb-2 sm:hidden">
+                <Button href={safeHref(cta.href)} arrow className="w-full">
+                  {cta.label}
+                </Button>
+              </li>
+            )}
           </ul>
         </nav>
       )}

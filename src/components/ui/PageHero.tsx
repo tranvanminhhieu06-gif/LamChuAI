@@ -1,6 +1,6 @@
 export function PageHero({ title, desc, eyebrow }: { title: string; desc?: string; eyebrow?: string }) {
   return (
-    <section className="relative isolate overflow-hidden bg-gradient-to-br from-brand-700 via-brand-600 to-brand-400 text-white">
+    <section className="relative isolate overflow-hidden bg-gradient-to-br from-brand-700 via-brand-600 to-brand-500 text-white">
       <div className="grid-bg absolute inset-0 -z-10" />
       <div className="container-x py-14 lg:py-16">
         {eyebrow && <p className="text-xs font-bold tracking-widest text-sky-200 uppercase">{eyebrow}</p>}
